@@ -4,18 +4,18 @@
 
 class MultiplesSum
   attr_accessor :running_total
-  attr_reader :multiple1, :multiple2
+  attr_reader :factor1, :factor2, :limit
 
-  def initialize(multiple1, multiple2)
-    @multiple1 = multiple1
-    @multiple2 = multiple2
+  def initialize(factor1, factor2, limit)
+    @factor1 = factor1
+    @factor2 = factor2
   end
 
   def all_together
     @running_total = 0
     x = 1
-    while x < 1000
-      @running_total += x if (x % multiple1 == 0 || x % multiple2 == 0)
+    while x < limit
+      @running_total += x if (x % factor1 == 0 || x % factor2 == 0)
       x += 1
     end
     running_total
@@ -23,5 +23,5 @@ class MultiplesSum
 
 end
 
-adder = MultiplesSum.new(3,17).all_together
+adder = MultiplesSum.new(3,17,1000).all_together
 puts adder

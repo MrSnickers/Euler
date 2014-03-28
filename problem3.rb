@@ -5,11 +5,12 @@ class PrimeFinder
   def initialize(target)
     @target = target
     @prime_factors = []
+    @last_largest
   end
 
   def find_prime_factors
     x = 3
-    while x <= target/2
+    while x <= target^(1/2)
       if target % x == 0
         prime_factors << x if not_reducable?(x)
       end

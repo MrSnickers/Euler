@@ -7,18 +7,24 @@ class PalindromeFinder
 
   def initialize
     @first = 999
-    @second = 998
+    @second = 999
+    @largest_palendrome = 0
   end
 
   def find_palendrome
-    total = (@first * @second).to_s
-    until (total[0] == total[-1] && total[1] == total[-2] && total[2] == total[-3])
+    while @first > 0
+      @second = @first
+      while @second > 0
+        if (@first * @second).to_s == (@first * @second).to_s.reverse
+          @largest_palendrome = @first * @second if @first * @second > @largest_palendrome
+          puts @first
+          puts @second
+        end
+        @second = @second - 1
+      end
       @first = @first - 1
-      @second = @second - 1
-      total = (@first * @second).to_s
-      puts total
     end
-    total
+    @largest_palendrome
   end
 
 end

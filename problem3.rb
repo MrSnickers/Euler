@@ -9,6 +9,7 @@ class PrimeFinder
   end
 
   def find_prime_factors
+    prime_factors << 2 if target % 2 == 0
     x = 3
     while x <= target^(1/2)
       if target % x == 0

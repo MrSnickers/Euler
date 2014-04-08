@@ -12,14 +12,10 @@ def initialize(target)
 end
 
 def find_factors
-  @factors << 2 if target > 2
-  while current_factor < target
-    @factors.each do |factor|
-      if current_factor % factor == 0
-        break
-      else
-        @factors  << factor
-      end
+  least_common_multiple = @target
+  current_factor = @target - 1
+  while current_factor > 1
+    @factors << current_factor if least_common_multiple % current_factor != 0
     current_factor += 1
   end
 

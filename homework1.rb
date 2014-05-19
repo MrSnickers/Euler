@@ -1,5 +1,5 @@
 class InversionFinder
-  attr_readable :inversion_quanitity, :original_array
+  attr_reader :inversion_quanitity, :original_array
 
   def intialize(file)
     original_array = File.open(file).readlines
